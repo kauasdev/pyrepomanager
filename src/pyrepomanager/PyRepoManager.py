@@ -1,5 +1,4 @@
 import requests
-
 from .GHConnect import GHConnect
 from subprocess import check_output, CalledProcessError
 from .Repository import Repository
@@ -49,7 +48,7 @@ class PyRepoManager(GHConnect):
             ))
         return repo_list
 
-    def get_user_info(self) -> tuple[dict, int]:
+    def get_user_data(self) -> tuple[dict, int]:
         url = f"https://api.github.com/users/{self.gh_username}"
         req = requests.get(url)
         data, status_code = req.json(), req.status_code
